@@ -1,5 +1,4 @@
-console.log('wsss');
-
+import { API } from './api.js';
 import * as UI from './interfaz.js';
 
 UI.formularioBuscar.addEventListener('submit', (e) => {
@@ -19,6 +18,11 @@ UI.formularioBuscar.addEventListener('submit', (e) => {
     }, 3000);
   }else{
     //el formulario esta completo, realizar consulta a la api
+    const api = new API(artista,cancion);
+    api.consultarAPI()
+        .then(data => {
+          console.log(data)
+        });
   }
     
 });
